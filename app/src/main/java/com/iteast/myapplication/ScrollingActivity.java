@@ -98,7 +98,7 @@ public class ScrollingActivity extends AppCompatActivity {
         mTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX,newTextSize);
 
         mTvTitle.setTranslationX((mToolbarTextPoint[0]-mTitleTextViewPoint[0]-(mTitleWidth - x))*offset);
-        mTvTitle.setTranslationY((mToolbarTextPoint[1]-mTitleTextViewPoint[1]-(mTitleHeight - y))*offset+appBarParallax);
+        mTvTitle.setTranslationY((mToolbarTextPoint[1]-mTitleTextViewPoint[1]-(mTitleHeight - y)/2)*offset+appBarParallax);
         mTvTitle.requestLayout();
 
     }
