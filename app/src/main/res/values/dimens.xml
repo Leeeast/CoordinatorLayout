@@ -1,0 +1,11 @@
+<resources>
+    <dimen name="app_bar_height">280dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+    <dimen name="size_avatart_expand">150dp</dimen>
+    <dimen name="size_avatart_collapsed">30dp</dimen>
+
+    <dimen name="dimen_title_expand">32sp</dimen>
+    <dimen name="dimen_title_collapsed">18sp</dimen>
+</resources>
