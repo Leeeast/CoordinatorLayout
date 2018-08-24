@@ -49,6 +49,7 @@
                     android:layout_width="@dimen/size_avatart_expand"
                     android:layout_height="@dimen/size_avatart_expand"
                     android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
                     android:layout_marginBottom="30dp"
                     android:background="@mipmap/notification_kaiqi" />
 

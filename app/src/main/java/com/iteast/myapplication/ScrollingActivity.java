@@ -81,7 +81,7 @@ public class ScrollingActivity extends AppCompatActivity {
 
 
         float appBarParallax = mAppBarStateChangeListener.getCurrentOffset()*mAppBar.getTotalScrollRange()*0.5f*offset;
-        mImageView.setTranslationX((mSpacePoint[0]-mAvatarPoint[0])*offset);
+        mImageView.setTranslationX((mSpacePoint[0]-mAvatarPoint[0]-(mExpandSize - newAvatarSize))*offset);
         mImageView.setTranslationY((mSpacePoint[1]-mAvatarPoint[1]-(mExpandSize - newAvatarSize))*offset+appBarParallax);
         mImageView.requestLayout();
 
@@ -91,14 +91,19 @@ public class ScrollingActivity extends AppCompatActivity {
 //        mTvTitle.getLayoutParams().width = Math.round(newTextSizeX);
 //        mTvTitle.getLayoutParams().height = Math.round(newTextSizeY);
 //        mTvTitle.requestLayout();
-        float x = mTitleWidth - (mTitleWidth - mToolBarTitleWidth)* offset;
-        float y = mTitleHeight - (mTitleHeight - mToolBarTitleHeight)* offset;
+        float scaleX = mTitleWidth - (mTitleWidth - mToolBarTitleWidth)* offset;
+        float scaleY = mTitleHeight - (mTitleHeight - mToolBarTitleHeight)* offset;
 
-        float newTextSize= mExpandTextSize-(mExpandTextSize-mColloapsedTextSize)*offset;
-        mTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX,newTextSize);
+        //float newTextSize= mExpandTextSize-(mExpandTextSize-mColloapsedTextSize)*offset;
+        //mTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX,newTextSize);
+        float scaleX1 = mToolBarTitleWidth/mTitleWidth;
+        float scaleY2 = mToolBarTitleHeight/mTitleWidth;
+        mTvTitle.setScaleX(scaleX1);
+        mTvTitle.setScaleY(scaleY2);
 
-        mTvTitle.setTranslationX((mToolbarTextPoint[0]-mTitleTextViewPoint[0]-(mTitleWidth - x))*offset);
-        mTvTitle.setTranslationY((mToolbarTextPoint[1]-mTitleTextViewPoint[1]-(mTitleHeight - y)/2)*offset+appBarParallax);
+
+        mTvTitle.setTranslationX((mToolbarTextPoint[0]-mTitleTextViewPoint[0]-(mTitleWidth - scaleX))*offset);
+        mTvTitle.setTranslationY((mToolbarTextPoint[1]-mTitleTextViewPoint[1]-(mTitleHeight - scaleY)/2)*offset+appBarParallax);
         mTvTitle.requestLayout();
 
     }
